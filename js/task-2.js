@@ -39,18 +39,32 @@ const imageGalleryTemplate = images.map(imgInfo => createImageGallery(imgInfo)).
 const galleryListImg = document.querySelector('.gallery');
 
 galleryListImg.insertAdjacentHTML('afterbegin', imageGalleryTemplate);
-console.log(galleryListImg);
-
-// galleryListImg.style.display = 'flex';
-// galleryListImg.style.rowGap = '48px';
-// galleryListImg.style.columnGap = '24px';
-// galleryListImg.style.flexWrap = 'wrap';
-// galleryListImg.style.listStyle = 'none';
-// galleryListImg.style.padding = '0';
-// galleryListImg.style.margin = '0';
 
 
-// const imgGalleryItems = galleryListImg.querySelectorAll('.gallery-item');
-// imgGalleryItems.forEach(item => {
-//   item.style.flexShrink = '0';
-// });
+/* =============
+STYLES
+================ */
+
+galleryListImg.style.display = 'flex';
+galleryListImg.style.width = '1440px';
+galleryListImg.style.height = '848px';
+galleryListImg.style.padding = '100px 156px';
+galleryListImg.style.justifyContent = 'center';
+galleryListImg.style.alignItem = 'flex-start';
+galleryListImg.style.flexWrap = 'wrap';
+galleryListImg.style.rowGap = '48px';
+galleryListImg.style.columnGap = '24px';
+
+
+const itemsImg = galleryListImg.querySelectorAll('.gallery-item');
+
+itemsImg.forEach( li => {
+  li.style.listStyle = 'none';
+
+  const listItems = li.querySelectorAll('img');
+  listItems.forEach(img => {
+    img.style.width = '360px';
+    img.style.height = '300px';
+    img.style.flexShrink = '0';
+  });
+});
